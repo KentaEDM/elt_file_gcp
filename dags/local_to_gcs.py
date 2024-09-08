@@ -35,7 +35,7 @@ DATA_PATH       = f"{BASE_PATH}/data"
 default_args =  {
     'owner' : 'Kenta',
     'email' : 'kentaedmonda01@gmail.com',
-    'email_on_failure' : True,
+    'email_on_failure' : False,
     'retries' : 1,
     "depend_on_past" : False,
     "retry_delay" : timedelta(minutes=1)
@@ -54,7 +54,7 @@ def elt_olympics_to_gcp():
 
     @task()
     def extract_and_transform_athletes():
-        file_path = f"{DATA_PATH}athletes.csv"
+        file_path = f"{DATA_PATH}/athletes.csv"
         today = datetime.today()
         df_athletes = pd.read_csv(file_path)
         df_athletes['birth_date'] = pd.to_datetime(df_athletes['birth_date'])
