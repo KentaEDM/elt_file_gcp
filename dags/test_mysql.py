@@ -13,13 +13,13 @@ from airflow.models import BaseOperator
 from airflow.operators.empty import EmptyOperator
 
 #GCP Variables
-bucket              = "de-ark-storage"
-gcs_project         = "mp4-arkademi"
-gcs_connection      = "gcp_arkademi"
-mysql_connection    = "local_mysql"
-tables              = "kupon_list"
-dataset             = "de_test"
-file_ext            = "CSV"
+bucket              = ""
+gcs_project         = ""
+gcs_connection      = ""
+mysql_connection    = ""
+tables              = ""
+dataset             = ""
+file_ext            = ""
 resource_path       = ""
 
 
@@ -51,7 +51,7 @@ end_task = EmptyOperator(task_id='End_task', dag=dag)
 
 extract = MySQLToGCSOperator(
     task_id             = "extract_data",
-    export_format       = "csv", # untuk setting pengiriman berupa file csv (karena class ini secara default mengirim json)
+    export_format       = "csv", # Change json to csv formats
     mysql_conn_id       = mysql_connection,
     gcp_conn_id         = gcs_connection,
     sql                 =  "select * from kupon_list", 
@@ -65,7 +65,7 @@ load = GCSToBigQueryOperator(
     task_id             = "load_to_bq",
     gcp_conn_id         = gcs_connection,
     bucket              = bucket,
-    destination_project_dataset_table="mp4-arkademi.de_test.table_testing", #fixed gcs to bigquery
+    destination_project_dataset_table="", #input destination to bigquery
     source_objects      = ["kupon_list.CSV"],
     source_format       = "CSV",
     field_delimiter     = ",",
