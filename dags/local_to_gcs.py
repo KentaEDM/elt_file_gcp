@@ -108,6 +108,7 @@ def elt_olympics_to_gcp():
 
     start_task = EmptyOperator(task_id="Start_task")
     end_task = EmptyOperator(task_id="End_Task")
+    
     # Load to GCS 
     load_athletes_to_gcs = LocalFilesystemToGCSOperator(
         task_id = "load_athletes_to_gcs",
