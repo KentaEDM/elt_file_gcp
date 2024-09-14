@@ -28,9 +28,15 @@ BASE_PATH       = Variable.get("BASE_PATH")
 DATASET_ID      = Variable.get("DATASET_ID")
 BUCKET_NAME     = Variable.get("BUCKET_NAME")
 GC_CONN_ID      = Variable.get("GC_CONN_ID")
-BQ_TABLE_NAME   = ""
+GCP_PROJECT     = "agile-alignment-435006-h3"
+BQ_TABLE_NAME   = "agile-alignment-435006-h3.EDM_Data"
 GCS_OBJECT_NAME = "extract_local.csv"
 DATA_PATH       = f"{BASE_PATH}/data"
+athletes_schema = "athletes_schemas.json"        
+events_schema   = "events_schemas.json"        
+medals_schema   = "medals_schemas.json"        
+schedules_schema = "schedules_schemas.json"        
+teams_schema    = "athletes_schemas.json"        
 
 default_args =  {
     'owner' : 'Kenta',
@@ -109,6 +115,7 @@ def elt_olympics_to_gcp():
     start_task = EmptyOperator(task_id="Start_task")
     end_task = EmptyOperator(task_id="End_Task")
     
+    
     # Load to GCS 
     load_athletes_to_gcs = LocalFilesystemToGCSOperator(
         task_id = "load_athletes_to_gcs",
@@ -146,6 +153,189 @@ def elt_olympics_to_gcp():
         gcp_conn_id = GC_CONN_ID,
     )
 
+    # GCS To Bigquery
+
+    load_athletes_to_bigquery = GCSToBigQueryOperator(
+        task_id         = "load_athletes_to_bigquery",
+        bucket          = BUCKET_NAME,
+        gcp_conn_id     = GC_CONN_ID,
+        source_objects  = ['processed_athletes.csv'],
+        destination_project_dataset_table = f'{BQ_TABLE_NAME}.table_athletes',
+        source_format   = 'csv',
+        field_delimiter = ',',
+        skip_leading_rows = 1,
+        max_bad_records = 100,
+        project_id      = GCP_PROJECT,
+        autodetect      = True,
+        ignore_unknown_values = True,
+        create_disposition = "CREATE_IF_NEEDED",
+        write_disposition = "WRITE_APPEND",
+        schema_fields   = [
+                            { "name": "code", "type": "INTEGER", "mode": "REQUIRED" },
+                            { "name": "name", "type": "STRING", "mode": "NULLABLE" },
+                            { "name": "name_short", "type": "STRING", "mode": "NULLABLE" },
+                            { "name": "name_tv", "type": "STRING", "mode": "NULLABLE" },
+                            { "name": "gender", "type": "STRING", "mode": "NULLABLE" },
+                            { "name": "function", "type": "STRING", "mode": "NULLABLE" },
+                            { "name": "country_code", "type": "STRING", "mode": "NULLABLE" },
+                            { "name": "country", "type": "STRING", "mode": "NULLABLE" },
+                            { "name": "country_long", "type": "STRING", "mode": "NULLABLE" },
+                            { "name": "nationality", "type": "STRING", "mode": "NULLABLE" },
+                            { "name": "nationality_full", "type": "STRING", "mode": "NULLABLE" },
+                            { "name": "nationality_code", "type": "STRING", "mode": "NULLABLE" },
+                            { "name": "height", "type": "INTEGER", "mode": "NULLABLE" },
+                            { "name": "weight", "type": "FLOAT", "mode": "NULLABLE" },
+                            { "name": "disciplines", "type": "STRING", "mode": "REPEATED" },
+                            { "name": "events", "type": "STRING", "mode": "REPEATED" },
+                            { "name": "birth_date", "type": "DATE", "mode": "NULLABLE" },
+                            { "name": "birth_place", "type": "STRING", "mode": "NULLABLE" },
+                            { "name": "birth_country", "type": "STRING", "mode": "NULLABLE" },
+                            { "name": "residence_place", "type": "STRING", "mode": "NULLABLE" },
+                            { "name": "residence_country", "type": "STRING", "mode": "NULLABLE" },
+                            { "name": "nickname", "type": "STRING", "mode": "NULLABLE" },
+                            { "name": "hobbies", "type": "STRING", "mode": "NULLABLE" },
+                            { "name": "occupation", "type": "STRING", "mode": "NULLABLE" },
+                            { "name": "education", "type": "STRING", "mode": "NULLABLE" },
+                            { "name": "family", "type": "STRING", "mode": "NULLABLE" },
+                            { "name": "lang", "type": "STRING", "mode": "NULLABLE" },
+                            { "name": "coach", "type": "STRING", "mode": "NULLABLE" },
+                            { "name": "reason", "type": "STRING", "mode": "NULLABLE" },
+                            { "name": "hero", "type": "STRING", "mode": "NULLABLE" },
+                            { "name": "influence", "type": "STRING", "mode": "NULLABLE" },
+                            { "name": "philosophy", "type": "STRING", "mode": "NULLABLE" },
+                            { "name": "sporting_relatives", "type": "STRING", "mode": "NULLABLE" },
+                            { "name": "ritual", "type": "STRING", "mode": "NULLABLE" },
+                            { "name": "other_sports", "type": "STRING", "mode": "NULLABLE" },
+                            { "name": "age", "type": "INTEGER", "mode": "NULLABLE" }
+                            ]
+
+    )
+    load_events_to_bigquery = GCSToBigQueryOperator(
+        task_id         = "load_events_to_bigquery",
+        bucket          = BUCKET_NAME,
+        gcp_conn_id     = GC_CONN_ID,
+        source_objects  = ['processed_events.csv'],
+        destination_project_dataset_table = f'{BQ_TABLE_NAME}.table_events',
+        source_format   = 'csv',
+        field_delimiter = ',',
+        skip_leading_rows = 1,
+        max_bad_records = 100,
+        project_id      = GCP_PROJECT,
+        autodetect      = True,
+        ignore_unknown_values = True,
+        create_disposition = "CREATE_IF_NEEDED",
+        write_disposition = "WRITE_APPEND",
+        schema_fields   = [
+                            {'name': 'event', 'type': 'STRING', 'mode': 'REQUIRED'},
+                            {'name': 'tag', 'type': 'STRING', 'mode': 'NULLABLE'},
+                            {'name': 'sport', 'type': 'STRING', 'mode': 'REQUIRED'},
+                            {'name': 'sport_code', 'type': 'STRING', 'mode': 'NULLABLE'},
+                            {'name': 'sport_url', 'type': 'STRING', 'mode': 'NULLABLE'},
+                            ]
+
+    )
+    load_medals_to_bigquery = GCSToBigQueryOperator(
+        task_id         = "load_medals_to_bigquery",
+        bucket          = BUCKET_NAME,
+        gcp_conn_id     = GC_CONN_ID,
+        source_objects  = ['processed_medals.csv'],
+        destination_project_dataset_table = f'{BQ_TABLE_NAME}.table_medals',
+        source_format   = 'csv',
+        field_delimiter = ',',
+        skip_leading_rows = 1,
+        max_bad_records = 100,
+        project_id      = GCP_PROJECT,
+        autodetect      = True,
+        ignore_unknown_values = True,
+        create_disposition = "CREATE_IF_NEEDED",
+        write_disposition = "WRITE_APPEND",
+        schema_fields   = [
+                            {'name': 'medal_type', 'type': 'STRING', 'mode': 'REQUIRED'},
+                            {'name': 'medal_code', 'type': 'INTEGER', 'mode': 'REQUIRED'},
+                            {'name': 'medal_date', 'type': 'DATE', 'mode': 'REQUIRED'},
+                            {'name': 'name', 'type': 'STRING', 'mode': 'REQUIRED'},
+                            {'name': 'gender', 'type': 'STRING', 'mode': 'REQUIRED'},
+                            {'name': 'discipline', 'type': 'STRING', 'mode': 'REQUIRED'},
+                            {'name': 'event', 'type': 'STRING', 'mode': 'REQUIRED'},
+                            {'name': 'event_type', 'type': 'STRING', 'mode': 'REQUIRED'},
+                            {'name': 'url_event', 'type': 'STRING', 'mode': 'NULLABLE'},
+                            {'name': 'code', 'type': 'INTEGER', 'mode': 'REQUIRED'},
+                            {'name': 'country_code', 'type': 'STRING', 'mode': 'REQUIRED'},
+                            {'name': 'country', 'type': 'STRING', 'mode': 'REQUIRED'},
+                            {'name': 'country_long', 'type': 'STRING', 'mode': 'REQUIRED'},
+                            ]
+
+    )
+    load_schedules_to_bigquery = GCSToBigQueryOperator(
+        task_id         = "load_schedules_to_bigquery",
+        bucket          = BUCKET_NAME,
+        gcp_conn_id     = GC_CONN_ID,
+        source_objects  = ['processed_schedules.csv'],
+        destination_project_dataset_table = f'{BQ_TABLE_NAME}.table_schedules',
+        source_format   = 'csv',
+        field_delimiter = ',',
+        skip_leading_rows = 1,
+        max_bad_records = 100,
+        project_id      = GCP_PROJECT,
+        autodetect      = True,
+        ignore_unknown_values = True,
+        create_disposition = "CREATE_IF_NEEDED",
+        write_disposition = "WRITE_APPEND",
+        schema_fields   = [
+                            {'name': 'start_date', 'type': 'TIMESTAMP', 'mode': 'NULLABLE'},
+                            {'name': 'end_date', 'type': 'TIMESTAMP', 'mode': 'NULLABLE'},
+                            {'name': 'day', 'type': 'DATE', 'mode': 'NULLABLE'},
+                            {'name': 'status', 'type': 'STRING', 'mode': 'NULLABLE'},
+                            {'name': 'discipline', 'type': 'STRING', 'mode': 'NULLABLE'},
+                            {'name': 'discipline_code', 'type': 'STRING', 'mode': 'NULLABLE'},
+                            {'name': 'event', 'type': 'STRING', 'mode': 'NULLABLE'},
+                            {'name': 'event_medal', 'type': 'INTEGER', 'mode': 'NULLABLE'},
+                            {'name': 'phase', 'type': 'STRING', 'mode': 'NULLABLE'},
+                            {'name': 'gender', 'type': 'STRING', 'mode': 'NULLABLE'},
+                            {'name': 'event_type', 'type': 'STRING', 'mode': 'NULLABLE'},
+                            {'name': 'venue', 'type': 'STRING', 'mode': 'NULLABLE'},
+                            {'name': 'venue_code', 'type': 'STRING', 'mode': 'NULLABLE'},
+                            {'name': 'location_description', 'type': 'STRING', 'mode': 'NULLABLE'},
+                            {'name': 'location_code', 'type': 'STRING', 'mode': 'NULLABLE'},
+                            {'name': 'url', 'type': 'STRING', 'mode': 'NULLABLE'}
+                        ]
+
+    )
+    load_teams_to_bigquery = GCSToBigQueryOperator(
+        task_id         = "load_teams_to_bigquery",
+        bucket          = BUCKET_NAME,
+        gcp_conn_id     = GC_CONN_ID,
+        source_objects  = ['processed_athletes.csv'],
+        destination_project_dataset_table = f'{BQ_TABLE_NAME}.table_teams',
+        source_format   = 'csv',
+        field_delimiter = ',',
+        skip_leading_rows = 1,
+        max_bad_records = 100,
+        project_id      = GCP_PROJECT,
+        autodetect      = True,
+        ignore_unknown_values = True,
+        create_disposition = "CREATE_IF_NEEDED",
+        write_disposition = "WRITE_APPEND",
+        schema_fields   = [
+                            {'name': 'code', 'type': 'STRING', 'mode': 'REQUIRED'},
+                            {'name': 'team', 'type': 'STRING', 'mode': 'REQUIRED'},
+                            {'name': 'team_gender', 'type': 'STRING', 'mode': 'NULLABLE'},
+                            {'name': 'country_code', 'type': 'STRING', 'mode': 'REQUIRED'},
+                            {'name': 'country', 'type': 'STRING', 'mode': 'REQUIRED'},
+                            {'name': 'country_long', 'type': 'STRING', 'mode': 'NULLABLE'},
+                            {'name': 'discipline', 'type': 'STRING', 'mode': 'REQUIRED'},
+                            {'name': 'disciplines_code', 'type': 'STRING', 'mode': 'REQUIRED'},
+                            {'name': 'events', 'type': 'STRING', 'mode': 'REQUIRED'},
+                            {'name': 'athletes', 'type': 'STRING', 'mode': 'NULLABLE'},
+                            {'name': 'coaches', 'type': 'STRING', 'mode': 'NULLABLE'},
+                            {'name': 'athletes_codes', 'type': 'STRING', 'mode': 'NULLABLE'},
+                            {'name': 'num_athletes', 'type': 'FLOAT', 'mode': 'NULLABLE'},
+                            {'name': 'coaches_codes', 'type': 'STRING', 'mode': 'NULLABLE'},
+                            {'name': 'num_coaches', 'type': 'FLOAT', 'mode': 'NULLABLE'}
+                        ]
+
+    )
+
     start_task >> [athletes_data, events_data, medals_data, schedules_data, teams_data]  # All extraction tasks follow start
     athletes_data >> load_athletes_to_gcs  # After extraction, load athletes data to GCS
     events_data >> load_events_to_gcs      # After extraction, load events data to GCS
@@ -154,7 +344,13 @@ def elt_olympics_to_gcp():
     teams_data >> load_teams_to_gcs        # After extraction, load teams data to GCS
 
     # All loading tasks should complete before the end task
-    [load_athletes_to_gcs, load_events_to_gcs, load_medals_to_gcs, load_schedules_to_gcs, load_teams_to_gcs] >> end_task
+    load_athletes_to_gcs >> load_athletes_to_bigquery
+    load_events_to_gcs >> load_events_to_bigquery
+    load_medals_to_gcs >> load_medals_to_bigquery
+    load_schedules_to_gcs >> load_schedules_to_bigquery
+    load_teams_to_gcs >> load_teams_to_bigquery
+
+    [load_athletes_to_bigquery, load_events_to_bigquery, load_medals_to_bigquery, load_schedules_to_bigquery, load_teams_to_bigquery] >> end_task
     
 
         
