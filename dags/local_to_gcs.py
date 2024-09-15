@@ -19,8 +19,8 @@ import pandas as pd
 import csv
 
 from datetime import datetime
+
 #link kaggle : https://www.kaggle.com/code/muhammadehsan02/starter-paris-olympic-2024
-# Fungsi 1: Ekstrak data dari athlete.csv
 
 
 
