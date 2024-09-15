@@ -1,0 +1,298 @@
+[0m11:16:11.054162 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000015B67D810D0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000015B67DC42D0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000015B67DCB850>]}
+
+
+============================== 11:16:11.058168 | 55ddefd9-0d5f-4616-8e1e-835b6f73fcc8 ==============================
+[0m11:16:11.058168 [info ] [MainThread]: Running with dbt=1.8.6
+[0m11:16:11.058168 [debug] [MainThread]: running dbt with arguments {'printer_width': '80', 'indirect_selection': 'eager', 'write_json': 'True', 'log_cache_events': 'False', 'partial_parse': 'True', 'cache_selected_only': 'False', 'profiles_dir': 'C:\\Users\\kenta\\.dbt', 'debug': 'False', 'fail_fast': 'False', 'log_path': 'logs', 'warn_error': 'None', 'version_check': 'True', 'use_colors': 'True', 'use_experimental_parser': 'False', 'no_print': 'None', 'quiet': 'False', 'empty': 'None', 'warn_error_options': 'WarnErrorOptions(include=[], exclude=[])', 'introspect': 'True', 'static_parser': 'True', 'invocation_command': 'dbt init dbt_project', 'target_path': 'None', 'log_format': 'default', 'send_anonymous_usage_stats': 'True'}
+[0m11:16:11.115209 [debug] [MainThread]: Starter project path: C:\Users\kenta\OneDrive\Desktop\Arkademi\Data_Engineering_ARK\my_venv\Lib\site-packages\dbt\include\starter_project
+[0m11:16:11.164224 [info ] [MainThread]: 
+Your new dbt project "dbt_project" was created!
+
+For more information on how to configure the profiles.yml file,
+please consult the dbt documentation here:
+
+  https://docs.getdbt.com/docs/configure-your-profile
+
+One more thing:
+
+Need help? Don't hesitate to reach out to us via GitHub issues or on Slack:
+
+  https://community.getdbt.com/
+
+Happy modeling!
+
+[0m11:16:11.164224 [info ] [MainThread]: Setting up your profile.
+[0m11:18:31.410008 [info ] [MainThread]: Profile dbt_project written to C:\Users\kenta\.dbt\profiles.yml using target's profile_template.yml and your supplied values. Run 'dbt debug' to validate the connection.
+[0m11:18:31.410008 [debug] [MainThread]: Command `dbt init` succeeded at 11:18:31.410008 after 140.45 seconds
+[0m11:18:31.418104 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000015B61553550>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000015B67B5CE10>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000015B6153F750>]}
+[0m11:18:31.418104 [debug] [MainThread]: Flushing usage events
+[0m15:43:21.609337 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000021D20253150>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000021D20184150>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000021D20294910>]}
+
+
+============================== 15:43:21.616192 | 8e92013c-6b96-4df2-be0f-3fd1a14366bb ==============================
+[0m15:43:21.616192 [info ] [MainThread]: Running with dbt=1.8.6
+[0m15:43:21.617315 [debug] [MainThread]: running dbt with arguments {'printer_width': '80', 'indirect_selection': 'eager', 'log_cache_events': 'False', 'write_json': 'True', 'partial_parse': 'True', 'cache_selected_only': 'False', 'warn_error': 'None', 'fail_fast': 'False', 'version_check': 'True', 'log_path': 'logs', 'profiles_dir': 'C:\\Users\\kenta\\.dbt', 'debug': 'False', 'use_colors': 'True', 'use_experimental_parser': 'False', 'no_print': 'None', 'quiet': 'False', 'empty': 'None', 'warn_error_options': 'WarnErrorOptions(include=[], exclude=[])', 'invocation_command': 'dbt debug', 'introspect': 'True', 'static_parser': 'True', 'target_path': 'None', 'log_format': 'default', 'send_anonymous_usage_stats': 'True'}
+[0m15:43:21.673325 [info ] [MainThread]: dbt version: 1.8.6
+[0m15:43:21.675327 [info ] [MainThread]: python version: 3.11.4
+[0m15:43:21.676322 [info ] [MainThread]: python path: C:\Users\kenta\OneDrive\Desktop\Arkademi\Data_Engineering_ARK\my_venv\Scripts\python.exe
+[0m15:43:21.677325 [info ] [MainThread]: os info: Windows-10-10.0.22631-SP0
+[0m15:43:21.682608 [info ] [MainThread]: Error importing adapter: No module named 'dbt.adapters.postgres'
+[0m15:43:24.247765 [info ] [MainThread]: Error importing adapter: No module named 'dbt.adapters.postgres'
+[0m15:43:24.249724 [info ] [MainThread]: Using profiles dir at C:\Users\kenta\.dbt
+[0m15:43:24.250760 [info ] [MainThread]: Using profiles.yml file at C:\Users\kenta\.dbt\profiles.yml
+[0m15:43:24.251724 [info ] [MainThread]: Using dbt_project.yml file at C:\Users\kenta\OneDrive\Desktop\Data Engineer Journey\ELT PROJECT September\dbt\dbt_project.yml
+[0m15:43:24.252720 [info ] [MainThread]: Configuration:
+[0m15:43:24.253727 [info ] [MainThread]:   profiles.yml file [[31mERROR invalid[0m]
+[0m15:43:24.254722 [info ] [MainThread]:   dbt_project.yml file [[31mERROR not found[0m]
+[0m15:43:24.255733 [info ] [MainThread]: Required dependencies:
+[0m15:43:24.256727 [debug] [MainThread]: Executing "git --help"
+[0m15:43:24.287292 [debug] [MainThread]: STDOUT: "b"usage: git [-v | --version] [-h | --help] [-C <path>] [-c <name>=<value>]\n           [--exec-path[=<path>]] [--html-path] [--man-path] [--info-path]\n           [-p | --paginate | -P | --no-pager] [--no-replace-objects] [--bare]\n           [--git-dir=<path>] [--work-tree=<path>] [--namespace=<name>]\n           [--config-env=<name>=<envvar>] <command> [<args>]\n\nThese are common Git commands used in various situations:\n\nstart a working area (see also: git help tutorial)\n   clone     Clone a repository into a new directory\n   init      Create an empty Git repository or reinitialize an existing one\n\nwork on the current change (see also: git help everyday)\n   add       Add file contents to the index\n   mv        Move or rename a file, a directory, or a symlink\n   restore   Restore working tree files\n   rm        Remove files from the working tree and from the index\n\nexamine the history and state (see also: git help revisions)\n   bisect    Use binary search to find the commit that introduced a bug\n   diff      Show changes between commits, commit and working tree, etc\n   grep      Print lines matching a pattern\n   log       Show commit logs\n   show      Show various types of objects\n   status    Show the working tree status\n\ngrow, mark and tweak your common history\n   branch    List, create, or delete branches\n   commit    Record changes to the repository\n   merge     Join two or more development histories together\n   rebase    Reapply commits on top of another base tip\n   reset     Reset current HEAD to the specified state\n   switch    Switch branches\n   tag       Create, list, delete or verify a tag object signed with GPG\n\ncollaborate (see also: git help workflows)\n   fetch     Download objects and refs from another repository\n   pull      Fetch from and integrate with another repository or a local branch\n   push      Update remote refs along with associated objects\n\n'git help -a' and 'git help -g' list available subcommands and some\nconcept guides. See 'git help <command>' or 'git help <concept>'\nto read about a specific subcommand or concept.\nSee 'git help git' for an overview of the system.\n""
+[0m15:43:24.287292 [debug] [MainThread]: STDERR: "b''"
+[0m15:43:24.288292 [info ] [MainThread]:  - git [[32mOK found[0m]
+
+[0m15:43:24.289294 [info ] [MainThread]: Connection test skipped since no profile was found
+[0m15:43:24.291296 [info ] [MainThread]: [31m2 checks failed:[0m
+[0m15:43:24.292292 [info ] [MainThread]: Could not load dbt_project.yml
+Profile loading failed for the following reason:
+Runtime Error
+  Credentials in profile "Kenta", target "dev" invalid: Runtime Error
+    Could not find adapter type postgres!
+
+Runtime Error
+  Credentials in profile "exit", target "dev" invalid: Runtime Error
+    Could not find adapter type postgres!
+
+
+[0m15:43:24.294340 [info ] [MainThread]: Project loading failed for the following reason:
+ project path <C:\Users\kenta\OneDrive\Desktop\Data Engineer Journey\ELT PROJECT September\dbt\dbt_project.yml> not found
+
+[0m15:43:24.296227 [debug] [MainThread]: Command `dbt debug` failed at 15:43:24.296227 after 2.77 seconds
+[0m15:43:24.296227 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000021D19615A10>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000021D1990D6D0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000021D20125650>]}
+[0m15:43:24.297287 [debug] [MainThread]: Flushing usage events
+[0m15:43:50.580520 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000002A276E62510>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000002A276EA9350>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000002A276EA9490>]}
+
+
+============================== 15:43:50.585361 | b7fcf444-b0d6-4238-ad23-63d4059bf635 ==============================
+[0m15:43:50.585361 [info ] [MainThread]: Running with dbt=1.8.6
+[0m15:43:50.587376 [debug] [MainThread]: running dbt with arguments {'printer_width': '80', 'indirect_selection': 'eager', 'write_json': 'True', 'log_cache_events': 'False', 'partial_parse': 'True', 'cache_selected_only': 'False', 'warn_error': 'None', 'debug': 'False', 'version_check': 'True', 'log_path': 'logs', 'profiles_dir': 'C:\\Users\\kenta\\.dbt', 'fail_fast': 'False', 'use_colors': 'True', 'use_experimental_parser': 'False', 'no_print': 'None', 'quiet': 'False', 'empty': 'False', 'warn_error_options': 'WarnErrorOptions(include=[], exclude=[])', 'static_parser': 'True', 'invocation_command': 'dbt run', 'introspect': 'True', 'target_path': 'None', 'log_format': 'default', 'send_anonymous_usage_stats': 'True'}
+[0m15:43:50.588599 [error] [MainThread]: Encountered an error:
+Runtime Error
+  No dbt_project.yml found at expected path C:\Users\kenta\OneDrive\Desktop\Data Engineer Journey\ELT PROJECT September\dbt\dbt_project.yml
+  Verify that each entry within packages.yml (and their transitive dependencies) contains a file named dbt_project.yml
+  
+[0m15:43:50.590164 [debug] [MainThread]: Command `dbt run` failed at 15:43:50.590164 after 0.08 seconds
+[0m15:43:50.591769 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000002A270365A10>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000002A276E616D0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000002A276E63810>]}
+[0m15:43:50.591769 [debug] [MainThread]: Flushing usage events
+[0m15:45:20.842182 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001BAC4773010>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001BAC46A1210>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001BAC0925110>]}
+
+
+============================== 15:45:20.847261 | 7d564aff-99b5-4a9d-a0c0-290501e74708 ==============================
+[0m15:45:20.847261 [info ] [MainThread]: Running with dbt=1.8.6
+[0m15:45:20.848271 [debug] [MainThread]: running dbt with arguments {'printer_width': '80', 'indirect_selection': 'eager', 'log_cache_events': 'False', 'write_json': 'True', 'partial_parse': 'True', 'cache_selected_only': 'False', 'warn_error': 'None', 'debug': 'False', 'fail_fast': 'False', 'log_path': 'logs', 'version_check': 'True', 'profiles_dir': 'C:\\Users\\kenta\\.dbt', 'use_colors': 'True', 'use_experimental_parser': 'False', 'no_print': 'None', 'quiet': 'False', 'empty': 'None', 'log_format': 'default', 'invocation_command': 'dbt debug', 'warn_error_options': 'WarnErrorOptions(include=[], exclude=[])', 'introspect': 'True', 'target_path': 'None', 'static_parser': 'True', 'send_anonymous_usage_stats': 'True'}
+[0m15:45:20.885635 [info ] [MainThread]: dbt version: 1.8.6
+[0m15:45:20.886641 [info ] [MainThread]: python version: 3.11.4
+[0m15:45:20.887645 [info ] [MainThread]: python path: C:\Users\kenta\OneDrive\Desktop\Arkademi\Data_Engineering_ARK\my_venv\Scripts\python.exe
+[0m15:45:20.888642 [info ] [MainThread]: os info: Windows-10-10.0.22631-SP0
+[0m15:45:20.893646 [info ] [MainThread]: Error importing adapter: No module named 'dbt.adapters.postgres'
+[0m15:45:23.475517 [info ] [MainThread]: Error importing adapter: No module named 'dbt.adapters.postgres'
+[0m15:45:23.476463 [info ] [MainThread]: Using profiles dir at C:\Users\kenta\.dbt
+[0m15:45:23.477670 [info ] [MainThread]: Using profiles.yml file at C:\Users\kenta\.dbt\profiles.yml
+[0m15:45:23.478681 [info ] [MainThread]: Using dbt_project.yml file at C:\Users\kenta\OneDrive\Desktop\Data Engineer Journey\ELT PROJECT September\dbt\dbt_project.yml
+[0m15:45:23.479520 [info ] [MainThread]: Configuration:
+[0m15:45:23.480539 [info ] [MainThread]:   profiles.yml file [[31mERROR invalid[0m]
+[0m15:45:23.482534 [info ] [MainThread]:   dbt_project.yml file [[31mERROR not found[0m]
+[0m15:45:23.483535 [info ] [MainThread]: Required dependencies:
+[0m15:45:23.484533 [debug] [MainThread]: Executing "git --help"
+[0m15:45:23.513627 [debug] [MainThread]: STDOUT: "b"usage: git [-v | --version] [-h | --help] [-C <path>] [-c <name>=<value>]\n           [--exec-path[=<path>]] [--html-path] [--man-path] [--info-path]\n           [-p | --paginate | -P | --no-pager] [--no-replace-objects] [--bare]\n           [--git-dir=<path>] [--work-tree=<path>] [--namespace=<name>]\n           [--config-env=<name>=<envvar>] <command> [<args>]\n\nThese are common Git commands used in various situations:\n\nstart a working area (see also: git help tutorial)\n   clone     Clone a repository into a new directory\n   init      Create an empty Git repository or reinitialize an existing one\n\nwork on the current change (see also: git help everyday)\n   add       Add file contents to the index\n   mv        Move or rename a file, a directory, or a symlink\n   restore   Restore working tree files\n   rm        Remove files from the working tree and from the index\n\nexamine the history and state (see also: git help revisions)\n   bisect    Use binary search to find the commit that introduced a bug\n   diff      Show changes between commits, commit and working tree, etc\n   grep      Print lines matching a pattern\n   log       Show commit logs\n   show      Show various types of objects\n   status    Show the working tree status\n\ngrow, mark and tweak your common history\n   branch    List, create, or delete branches\n   commit    Record changes to the repository\n   merge     Join two or more development histories together\n   rebase    Reapply commits on top of another base tip\n   reset     Reset current HEAD to the specified state\n   switch    Switch branches\n   tag       Create, list, delete or verify a tag object signed with GPG\n\ncollaborate (see also: git help workflows)\n   fetch     Download objects and refs from another repository\n   pull      Fetch from and integrate with another repository or a local branch\n   push      Update remote refs along with associated objects\n\n'git help -a' and 'git help -g' list available subcommands and some\nconcept guides. See 'git help <command>' or 'git help <concept>'\nto read about a specific subcommand or concept.\nSee 'git help git' for an overview of the system.\n""
+[0m15:45:23.513627 [debug] [MainThread]: STDERR: "b''"
+[0m15:45:23.514644 [info ] [MainThread]:  - git [[32mOK found[0m]
+
+[0m15:45:23.515643 [info ] [MainThread]: Connection test skipped since no profile was found
+[0m15:45:23.516807 [info ] [MainThread]: [31m2 checks failed:[0m
+[0m15:45:23.517817 [info ] [MainThread]: Could not load dbt_project.yml
+Profile loading failed for the following reason:
+Runtime Error
+  Credentials in profile "Kenta", target "dev" invalid: Runtime Error
+    Could not find adapter type postgres!
+
+Runtime Error
+  Credentials in profile "exit", target "dev" invalid: Runtime Error
+    Could not find adapter type postgres!
+
+
+[0m15:45:23.521823 [info ] [MainThread]: Project loading failed for the following reason:
+ project path <C:\Users\kenta\OneDrive\Desktop\Data Engineer Journey\ELT PROJECT September\dbt\dbt_project.yml> not found
+
+[0m15:45:23.523817 [debug] [MainThread]: Command `dbt debug` failed at 15:45:23.523817 after 2.75 seconds
+[0m15:45:23.524815 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001BABDC55A10>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001BADE72AFD0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001BAC34F5C90>]}
+[0m15:45:23.524815 [debug] [MainThread]: Flushing usage events
+[0m15:55:32.752760 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x00000141EC8B0D10>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x00000141EC8F4690>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x00000141EBCBBF50>]}
+
+
+============================== 15:55:32.757334 | cb219957-81aa-410d-80ed-d6ff3cd90b4c ==============================
+[0m15:55:32.757334 [info ] [MainThread]: Running with dbt=1.8.6
+[0m15:55:32.759247 [debug] [MainThread]: running dbt with arguments {'printer_width': '80', 'indirect_selection': 'eager', 'log_cache_events': 'False', 'write_json': 'True', 'partial_parse': 'True', 'cache_selected_only': 'False', 'warn_error': 'None', 'debug': 'False', 'fail_fast': 'False', 'log_path': 'logs', 'profiles_dir': 'C:\\Users\\kenta\\.dbt', 'version_check': 'True', 'use_colors': 'True', 'use_experimental_parser': 'False', 'empty': 'None', 'quiet': 'False', 'no_print': 'None', 'log_format': 'default', 'introspect': 'True', 'warn_error_options': 'WarnErrorOptions(include=[], exclude=[])', 'static_parser': 'True', 'target_path': 'None', 'invocation_command': 'dbt debug', 'send_anonymous_usage_stats': 'True'}
+[0m15:55:32.792441 [info ] [MainThread]: dbt version: 1.8.6
+[0m15:55:32.793492 [info ] [MainThread]: python version: 3.11.4
+[0m15:55:32.794448 [info ] [MainThread]: python path: C:\Users\kenta\OneDrive\Desktop\Arkademi\Data_Engineering_ARK\my_venv\Scripts\python.exe
+[0m15:55:32.795448 [info ] [MainThread]: os info: Windows-10-10.0.22631-SP0
+[0m15:55:32.799551 [info ] [MainThread]: Error importing adapter: No module named 'dbt.adapters.postgres'
+[0m15:55:35.345702 [info ] [MainThread]: Error importing adapter: No module named 'dbt.adapters.postgres'
+[0m15:55:35.346703 [info ] [MainThread]: Using profiles dir at C:\Users\kenta\.dbt
+[0m15:55:35.347704 [info ] [MainThread]: Using profiles.yml file at C:\Users\kenta\.dbt\profiles.yml
+[0m15:55:35.348703 [info ] [MainThread]: Using dbt_project.yml file at C:\Users\kenta\OneDrive\Desktop\Data Engineer Journey\ELT PROJECT September\dbt\dbt_project.yml
+[0m15:55:35.349747 [info ] [MainThread]: Configuration:
+[0m15:55:35.350704 [info ] [MainThread]:   profiles.yml file [[31mERROR invalid[0m]
+[0m15:55:35.351703 [info ] [MainThread]:   dbt_project.yml file [[31mERROR not found[0m]
+[0m15:55:35.353704 [info ] [MainThread]: Required dependencies:
+[0m15:55:35.353704 [debug] [MainThread]: Executing "git --help"
+[0m15:55:35.384218 [debug] [MainThread]: STDOUT: "b"usage: git [-v | --version] [-h | --help] [-C <path>] [-c <name>=<value>]\n           [--exec-path[=<path>]] [--html-path] [--man-path] [--info-path]\n           [-p | --paginate | -P | --no-pager] [--no-replace-objects] [--bare]\n           [--git-dir=<path>] [--work-tree=<path>] [--namespace=<name>]\n           [--config-env=<name>=<envvar>] <command> [<args>]\n\nThese are common Git commands used in various situations:\n\nstart a working area (see also: git help tutorial)\n   clone     Clone a repository into a new directory\n   init      Create an empty Git repository or reinitialize an existing one\n\nwork on the current change (see also: git help everyday)\n   add       Add file contents to the index\n   mv        Move or rename a file, a directory, or a symlink\n   restore   Restore working tree files\n   rm        Remove files from the working tree and from the index\n\nexamine the history and state (see also: git help revisions)\n   bisect    Use binary search to find the commit that introduced a bug\n   diff      Show changes between commits, commit and working tree, etc\n   grep      Print lines matching a pattern\n   log       Show commit logs\n   show      Show various types of objects\n   status    Show the working tree status\n\ngrow, mark and tweak your common history\n   branch    List, create, or delete branches\n   commit    Record changes to the repository\n   merge     Join two or more development histories together\n   rebase    Reapply commits on top of another base tip\n   reset     Reset current HEAD to the specified state\n   switch    Switch branches\n   tag       Create, list, delete or verify a tag object signed with GPG\n\ncollaborate (see also: git help workflows)\n   fetch     Download objects and refs from another repository\n   pull      Fetch from and integrate with another repository or a local branch\n   push      Update remote refs along with associated objects\n\n'git help -a' and 'git help -g' list available subcommands and some\nconcept guides. See 'git help <command>' or 'git help <concept>'\nto read about a specific subcommand or concept.\nSee 'git help git' for an overview of the system.\n""
+[0m15:55:35.385218 [debug] [MainThread]: STDERR: "b''"
+[0m15:55:35.386260 [info ] [MainThread]:  - git [[32mOK found[0m]
+
+[0m15:55:35.387219 [info ] [MainThread]: Connection test skipped since no profile was found
+[0m15:55:35.388219 [info ] [MainThread]: [31m2 checks failed:[0m
+[0m15:55:35.389229 [info ] [MainThread]: Could not load dbt_project.yml
+Profile loading failed for the following reason:
+Runtime Error
+  Credentials in profile "Kenta", target "dev" invalid: Runtime Error
+    Could not find adapter type postgres!
+
+Runtime Error
+  Credentials in profile "exit", target "dev" invalid: Runtime Error
+    Could not find adapter type postgres!
+
+
+[0m15:55:35.392219 [info ] [MainThread]: Project loading failed for the following reason:
+ project path <C:\Users\kenta\OneDrive\Desktop\Data Engineer Journey\ELT PROJECT September\dbt\dbt_project.yml> not found
+
+[0m15:55:35.395315 [debug] [MainThread]: Command `dbt debug` failed at 15:55:35.394229 after 2.71 seconds
+[0m15:55:35.395315 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x00000141E5C15A10>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x00000141EC8B3F50>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001418690AFD0>]}
+[0m15:55:35.396271 [debug] [MainThread]: Flushing usage events
+[0m16:01:47.825927 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000022CFE0DAF90>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000022CFDE6CB50>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000022CFE0929D0>]}
+
+
+============================== 16:01:47.829279 | 933e6dd9-8fbf-4bd8-8601-4854ba6e5310 ==============================
+[0m16:01:47.829279 [info ] [MainThread]: Running with dbt=1.8.6
+[0m16:01:47.831283 [debug] [MainThread]: running dbt with arguments {'printer_width': '80', 'indirect_selection': 'eager', 'log_cache_events': 'False', 'write_json': 'True', 'partial_parse': 'True', 'cache_selected_only': 'False', 'profiles_dir': 'C:\\Users\\kenta\\.dbt', 'debug': 'False', 'version_check': 'True', 'log_path': 'logs', 'fail_fast': 'False', 'warn_error': 'None', 'use_colors': 'True', 'use_experimental_parser': 'False', 'no_print': 'None', 'quiet': 'False', 'empty': 'None', 'warn_error_options': 'WarnErrorOptions(include=[], exclude=[])', 'invocation_command': 'dbt debug', 'introspect': 'True', 'static_parser': 'True', 'target_path': 'None', 'log_format': 'default', 'send_anonymous_usage_stats': 'True'}
+[0m16:01:47.850284 [info ] [MainThread]: dbt version: 1.8.6
+[0m16:01:47.851285 [info ] [MainThread]: python version: 3.11.4
+[0m16:01:47.852285 [info ] [MainThread]: python path: C:\Users\kenta\OneDrive\Desktop\Arkademi\Data_Engineering_ARK\my_venv\Scripts\python.exe
+[0m16:01:47.853287 [info ] [MainThread]: os info: Windows-10-10.0.22631-SP0
+[0m16:01:49.252635 [info ] [MainThread]: Using profiles dir at C:\Users\kenta\.dbt
+[0m16:01:49.253594 [info ] [MainThread]: Using profiles.yml file at C:\Users\kenta\.dbt\profiles.yml
+[0m16:01:49.254595 [info ] [MainThread]: Using dbt_project.yml file at C:\Users\kenta\OneDrive\Desktop\Data Engineer Journey\ELT PROJECT September\dbt\dbt_project.yml
+[0m16:01:49.255592 [info ] [MainThread]: adapter type: bigquery
+[0m16:01:49.256594 [info ] [MainThread]: adapter version: 1.8.2
+[0m16:01:49.257595 [info ] [MainThread]: Configuration:
+[0m16:01:49.258131 [info ] [MainThread]:   profiles.yml file [[32mOK found and valid[0m]
+[0m16:01:49.259140 [info ] [MainThread]:   dbt_project.yml file [[31mERROR not found[0m]
+[0m16:01:49.260140 [info ] [MainThread]: Required dependencies:
+[0m16:01:49.260140 [debug] [MainThread]: Executing "git --help"
+[0m16:01:49.282141 [debug] [MainThread]: STDOUT: "b"usage: git [-v | --version] [-h | --help] [-C <path>] [-c <name>=<value>]\n           [--exec-path[=<path>]] [--html-path] [--man-path] [--info-path]\n           [-p | --paginate | -P | --no-pager] [--no-replace-objects] [--bare]\n           [--git-dir=<path>] [--work-tree=<path>] [--namespace=<name>]\n           [--config-env=<name>=<envvar>] <command> [<args>]\n\nThese are common Git commands used in various situations:\n\nstart a working area (see also: git help tutorial)\n   clone     Clone a repository into a new directory\n   init      Create an empty Git repository or reinitialize an existing one\n\nwork on the current change (see also: git help everyday)\n   add       Add file contents to the index\n   mv        Move or rename a file, a directory, or a symlink\n   restore   Restore working tree files\n   rm        Remove files from the working tree and from the index\n\nexamine the history and state (see also: git help revisions)\n   bisect    Use binary search to find the commit that introduced a bug\n   diff      Show changes between commits, commit and working tree, etc\n   grep      Print lines matching a pattern\n   log       Show commit logs\n   show      Show various types of objects\n   status    Show the working tree status\n\ngrow, mark and tweak your common history\n   branch    List, create, or delete branches\n   commit    Record changes to the repository\n   merge     Join two or more development histories together\n   rebase    Reapply commits on top of another base tip\n   reset     Reset current HEAD to the specified state\n   switch    Switch branches\n   tag       Create, list, delete or verify a tag object signed with GPG\n\ncollaborate (see also: git help workflows)\n   fetch     Download objects and refs from another repository\n   pull      Fetch from and integrate with another repository or a local branch\n   push      Update remote refs along with associated objects\n\n'git help -a' and 'git help -g' list available subcommands and some\nconcept guides. See 'git help <command>' or 'git help <concept>'\nto read about a specific subcommand or concept.\nSee 'git help git' for an overview of the system.\n""
+[0m16:01:49.283238 [debug] [MainThread]: STDERR: "b''"
+[0m16:01:49.283238 [info ] [MainThread]:  - git [[32mOK found[0m]
+
+[0m16:01:49.284141 [info ] [MainThread]: Connection:
+[0m16:01:49.285144 [info ] [MainThread]:   method: service-account
+[0m16:01:49.287213 [info ] [MainThread]:   database: agile-alignment-435006-h3
+[0m16:01:49.289142 [info ] [MainThread]:   execution_project: agile-alignment-435006-h3
+[0m16:01:49.290141 [info ] [MainThread]:   schema: EDM_Data
+[0m16:01:49.291551 [info ] [MainThread]:   location: US
+[0m16:01:49.291551 [info ] [MainThread]:   priority: interactive
+[0m16:01:49.292561 [info ] [MainThread]:   maximum_bytes_billed: None
+[0m16:01:49.293559 [info ] [MainThread]:   impersonate_service_account: None
+[0m16:01:49.294558 [info ] [MainThread]:   job_retry_deadline_seconds: None
+[0m16:01:49.295560 [info ] [MainThread]:   job_retries: 1
+[0m16:01:49.295560 [info ] [MainThread]:   job_creation_timeout_seconds: None
+[0m16:01:49.296871 [info ] [MainThread]:   job_execution_timeout_seconds: 300
+[0m16:01:49.297883 [info ] [MainThread]:   timeout_seconds: 300
+[0m16:01:49.298883 [info ] [MainThread]:   client_id: None
+[0m16:01:49.299881 [info ] [MainThread]:   token_uri: None
+[0m16:01:49.300608 [info ] [MainThread]:   dataproc_region: None
+[0m16:01:49.301616 [info ] [MainThread]:   dataproc_cluster_name: None
+[0m16:01:49.302617 [info ] [MainThread]:   gcs_bucket: None
+[0m16:01:49.302617 [info ] [MainThread]:   dataproc_batch: None
+[0m16:01:49.303684 [info ] [MainThread]: Registered adapter: bigquery=1.8.2
+[0m16:01:49.306364 [debug] [MainThread]: Acquiring new bigquery connection 'debug'
+[0m16:01:49.307372 [debug] [MainThread]: Opening a new connection, currently in state init
+[0m16:01:49.307372 [debug] [MainThread]: BigQuery adapter: Got an error when attempting to create a bigquery client: '[Errno 2] No such file or directory: '/opt/airflow/include/service_account.json''
+[0m16:01:49.308372 [info ] [MainThread]:   Connection test: [[31mERROR[0m]
+
+[0m16:01:49.309370 [info ] [MainThread]: [31m2 checks failed:[0m
+[0m16:01:49.310375 [info ] [MainThread]: Project loading failed for the following reason:
+ project path <C:\Users\kenta\OneDrive\Desktop\Data Engineer Journey\ELT PROJECT September\dbt\dbt_project.yml> not found
+
+[0m16:01:49.312376 [info ] [MainThread]: dbt was unable to connect to the specified database.
+The database returned the following error:
+
+  >Database Error
+  [Errno 2] No such file or directory: '/opt/airflow/include/service_account.json'
+
+Check your database credentials and try again. For more information, visit:
+https://docs.getdbt.com/docs/configure-your-profile
+
+
+[0m16:01:49.316393 [debug] [MainThread]: Command `dbt debug` failed at 16:01:49.316393 after 1.56 seconds
+[0m16:01:49.317379 [debug] [MainThread]: Connection 'debug' was properly closed.
+[0m16:01:49.317379 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000022CFE0E5F10>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000022CF7435A10>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000022CFE092550>]}
+[0m16:01:49.318380 [debug] [MainThread]: Flushing usage events
+[0m16:02:46.761875 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001F5FD701010>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001F5FD7441D0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001F5FD4DCED0>]}
+
+
+============================== 16:02:46.767872 | 1ebca948-21e8-4e14-b49e-683ad2ff14fe ==============================
+[0m16:02:46.767872 [info ] [MainThread]: Running with dbt=1.8.6
+[0m16:02:46.769569 [debug] [MainThread]: running dbt with arguments {'printer_width': '80', 'indirect_selection': 'eager', 'log_cache_events': 'False', 'write_json': 'True', 'partial_parse': 'True', 'cache_selected_only': 'False', 'profiles_dir': 'C:\\Users\\kenta\\.dbt', 'debug': 'False', 'version_check': 'True', 'log_path': 'logs', 'fail_fast': 'False', 'warn_error': 'None', 'use_colors': 'True', 'use_experimental_parser': 'False', 'empty': 'None', 'quiet': 'False', 'no_print': 'None', 'log_format': 'default', 'static_parser': 'True', 'invocation_command': 'dbt debug', 'introspect': 'True', 'target_path': 'None', 'warn_error_options': 'WarnErrorOptions(include=[], exclude=[])', 'send_anonymous_usage_stats': 'True'}
+[0m16:02:46.803324 [info ] [MainThread]: dbt version: 1.8.6
+[0m16:02:46.805326 [info ] [MainThread]: python version: 3.11.4
+[0m16:02:46.806322 [info ] [MainThread]: python path: C:\Users\kenta\OneDrive\Desktop\Arkademi\Data_Engineering_ARK\my_venv\Scripts\python.exe
+[0m16:02:46.808321 [info ] [MainThread]: os info: Windows-10-10.0.22631-SP0
+[0m16:02:48.297426 [info ] [MainThread]: Using profiles dir at C:\Users\kenta\.dbt
+[0m16:02:48.298322 [info ] [MainThread]: Using profiles.yml file at C:\Users\kenta\.dbt\profiles.yml
+[0m16:02:48.299322 [info ] [MainThread]: Using dbt_project.yml file at C:\Users\kenta\OneDrive\Desktop\Data Engineer Journey\ELT PROJECT September\dbt\dbt_project.yml
+[0m16:02:48.300321 [info ] [MainThread]: adapter type: bigquery
+[0m16:02:48.300321 [info ] [MainThread]: adapter version: 1.8.2
+[0m16:02:48.301472 [info ] [MainThread]: Configuration:
+[0m16:02:48.303816 [info ] [MainThread]:   profiles.yml file [[32mOK found and valid[0m]
+[0m16:02:48.304811 [info ] [MainThread]:   dbt_project.yml file [[31mERROR not found[0m]
+[0m16:02:48.304811 [info ] [MainThread]: Required dependencies:
+[0m16:02:48.306815 [debug] [MainThread]: Executing "git --help"
+[0m16:02:48.331339 [debug] [MainThread]: STDOUT: "b"usage: git [-v | --version] [-h | --help] [-C <path>] [-c <name>=<value>]\n           [--exec-path[=<path>]] [--html-path] [--man-path] [--info-path]\n           [-p | --paginate | -P | --no-pager] [--no-replace-objects] [--bare]\n           [--git-dir=<path>] [--work-tree=<path>] [--namespace=<name>]\n           [--config-env=<name>=<envvar>] <command> [<args>]\n\nThese are common Git commands used in various situations:\n\nstart a working area (see also: git help tutorial)\n   clone     Clone a repository into a new directory\n   init      Create an empty Git repository or reinitialize an existing one\n\nwork on the current change (see also: git help everyday)\n   add       Add file contents to the index\n   mv        Move or rename a file, a directory, or a symlink\n   restore   Restore working tree files\n   rm        Remove files from the working tree and from the index\n\nexamine the history and state (see also: git help revisions)\n   bisect    Use binary search to find the commit that introduced a bug\n   diff      Show changes between commits, commit and working tree, etc\n   grep      Print lines matching a pattern\n   log       Show commit logs\n   show      Show various types of objects\n   status    Show the working tree status\n\ngrow, mark and tweak your common history\n   branch    List, create, or delete branches\n   commit    Record changes to the repository\n   merge     Join two or more development histories together\n   rebase    Reapply commits on top of another base tip\n   reset     Reset current HEAD to the specified state\n   switch    Switch branches\n   tag       Create, list, delete or verify a tag object signed with GPG\n\ncollaborate (see also: git help workflows)\n   fetch     Download objects and refs from another repository\n   pull      Fetch from and integrate with another repository or a local branch\n   push      Update remote refs along with associated objects\n\n'git help -a' and 'git help -g' list available subcommands and some\nconcept guides. See 'git help <command>' or 'git help <concept>'\nto read about a specific subcommand or concept.\nSee 'git help git' for an overview of the system.\n""
+[0m16:02:48.332341 [debug] [MainThread]: STDERR: "b''"
+[0m16:02:48.332341 [info ] [MainThread]:  - git [[32mOK found[0m]
+
+[0m16:02:48.334338 [info ] [MainThread]: Connection:
+[0m16:02:48.335338 [info ] [MainThread]:   method: service-account
+[0m16:02:48.336337 [info ] [MainThread]:   database: agile-alignment-435006-h3
+[0m16:02:48.336337 [info ] [MainThread]:   execution_project: agile-alignment-435006-h3
+[0m16:02:48.337923 [info ] [MainThread]:   schema: EDM_Data
+[0m16:02:48.338933 [info ] [MainThread]:   location: US
+[0m16:02:48.339441 [info ] [MainThread]:   priority: interactive
+[0m16:02:48.340446 [info ] [MainThread]:   maximum_bytes_billed: None
+[0m16:02:48.341448 [info ] [MainThread]:   impersonate_service_account: None
+[0m16:02:48.342447 [info ] [MainThread]:   job_retry_deadline_seconds: None
+[0m16:02:48.343446 [info ] [MainThread]:   job_retries: 1
+[0m16:02:48.345452 [info ] [MainThread]:   job_creation_timeout_seconds: None
+[0m16:02:48.346450 [info ] [MainThread]:   job_execution_timeout_seconds: 300
+[0m16:02:48.347447 [info ] [MainThread]:   timeout_seconds: 300
+[0m16:02:48.348449 [info ] [MainThread]:   client_id: None
+[0m16:02:48.348940 [info ] [MainThread]:   token_uri: None
+[0m16:02:48.349949 [info ] [MainThread]:   dataproc_region: None
+[0m16:02:48.350950 [info ] [MainThread]:   dataproc_cluster_name: None
+[0m16:02:48.350950 [info ] [MainThread]:   gcs_bucket: None
+[0m16:02:48.351949 [info ] [MainThread]:   dataproc_batch: None
+[0m16:02:48.352949 [info ] [MainThread]: Registered adapter: bigquery=1.8.2
+[0m16:02:48.353950 [debug] [MainThread]: Acquiring new bigquery connection 'debug'
+[0m16:02:48.354979 [debug] [MainThread]: Opening a new connection, currently in state init
+[0m16:02:48.488059 [debug] [MainThread]: On debug: select 1 as id
+[0m16:02:49.843189 [debug] [MainThread]: BigQuery adapter: https://console.cloud.google.com/bigquery?project=agile-alignment-435006-h3&j=bq:US:cf63debc-c47d-497e-8dd3-ac44ada64efa&page=queryresults
+[0m16:02:50.647787 [info ] [MainThread]:   Connection test: [[32mOK connection ok[0m]
+
+[0m16:02:50.650390 [info ] [MainThread]: [31m1 check failed:[0m
+[0m16:02:50.651375 [info ] [MainThread]: Project loading failed for the following reason:
+ project path <C:\Users\kenta\OneDrive\Desktop\Data Engineer Journey\ELT PROJECT September\dbt\dbt_project.yml> not found
+
+[0m16:02:50.654378 [debug] [MainThread]: Command `dbt debug` failed at 16:02:50.654378 after 3.98 seconds
+[0m16:02:50.655379 [debug] [MainThread]: Connection 'debug' was properly closed.
+[0m16:02:50.656380 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001F5FD7571D0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001F5F6A55A10>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001F5FD701F90>]}
+[0m16:02:50.657379 [debug] [MainThread]: Flushing usage events
