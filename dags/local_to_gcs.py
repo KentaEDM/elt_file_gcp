@@ -104,12 +104,21 @@ def elt_olympics_to_gcp():
 
         return f"{DATA_PATH}/processed_teams.csv"
     
+    @task()    
+    def extract_and_transform_total_medals():
+        file_path = f"{DATA_PATH}/medals_total.csv"
+        df_teams = pd.read_csv(file_path)
+        df_teams.to_csv(f"{DATA_PATH}/processed_medals_total.csv", index=False)
+
+        return f"{DATA_PATH}/processed_medals_total.csv"
+    
     # Extract and transform tasks
     athletes_data   = extract_and_transform_athletes()
     events_data     = extract_and_transform_events()
     medals_data     = extract_and_transform_medals()
     schedules_data  = extract_and_transform_schedules()
     teams_data      = extract_and_transform_teams()
+    medals_total    = extract_and_transform_total_medals()
 
 
     start_task = EmptyOperator(task_id="Start_task")
@@ -152,6 +161,15 @@ def elt_olympics_to_gcp():
         bucket = BUCKET_NAME,
         gcp_conn_id = GC_CONN_ID,
     )
+
+    load_medals_total_to_gcs = LocalFilesystemToGCSOperator(
+        task_id = "load_medals_total_to_gcs",
+        src = medals_total,
+        dst = "processed_medals_total.csv",
+        bucket = BUCKET_NAME,
+        gcp_conn_id = GC_CONN_ID,
+    )
+
 
     # GCS To Bigquery
 
@@ -339,12 +357,40 @@ def elt_olympics_to_gcp():
 
     )
 
-    start_task >> [athletes_data, events_data, medals_data, schedules_data, teams_data]  # All extraction tasks follow start
+    load_medals_total_to_bigquery = GCSToBigQueryOperator(
+        task_id         = "load_medals_total_to_bigquery",
+        bucket          = BUCKET_NAME,
+        gcp_conn_id     = GC_CONN_ID,
+        source_objects  = ['processed_medals_total.csv'],
+        destination_project_dataset_table = f'{BQ_TABLE_NAME}.medals_total',
+        source_format   = 'csv',
+        field_delimiter = ',',
+        skip_leading_rows = 1,
+        max_bad_records = 0,
+        project_id      = GCP_PROJECT,
+        autodetect      = True,
+        ignore_unknown_values = True,
+        allow_quoted_newlines = True,
+         quote_character = '"',
+        create_disposition = "CREATE_IF_NEEDED",
+        write_disposition = "WRITE_APPEND",
+        schema_fields   = [
+                            {"mode": "NULLABLE", "name": "country_code", "type": "STRING"},
+                            {"mode": "NULLABLE", "name": "country", "type": "STRING"},
+                            {"mode": "NULLABLE", "name": "country_long", "type": "STRING"},
+                            {"mode": "NULLABLE", "name": "Gold_Medal", "type": "INTEGER"},
+                            {"mode": "NULLABLE", "name": "Silver_Medal", "type": "INTEGER"},
+                            {"mode": "NULLABLE", "name": "Bronze_Medal", "type": "INTEGER"},
+                            {"mode": "NULLABLE", "name": "Total", "type": "INTEGER"}
+                            ]
+    )
+    start_task >> [athletes_data, events_data, medals_data, schedules_data, teams_data, medals_total]  # All extraction tasks follow start
     athletes_data >> load_athletes_to_gcs  # After extraction, load athletes data to GCS
     events_data >> load_events_to_gcs      # After extraction, load events data to GCS
     medals_data >> load_medals_to_gcs      # After extraction, load medals data to GCS
     schedules_data >> load_schedules_to_gcs  # After extraction, load schedules data to GCS
     teams_data >> load_teams_to_gcs        # After extraction, load teams data to GCS
+    medals_total >> load_medals_total_to_gcs
 
     # All loading tasks should complete before the end task
     load_athletes_to_gcs >> load_athletes_to_bigquery
@@ -352,8 +398,9 @@ def elt_olympics_to_gcp():
     load_medals_to_gcs >> load_medals_to_bigquery
     load_schedules_to_gcs >> load_schedules_to_bigquery
     load_teams_to_gcs >> load_teams_to_bigquery
+    load_medals_total_to_gcs >> load_medals_total_to_bigquery
 
-    [load_athletes_to_bigquery, load_events_to_bigquery, load_medals_to_bigquery, load_schedules_to_bigquery, load_teams_to_bigquery] >> end_task
+    [load_athletes_to_bigquery, load_events_to_bigquery, load_medals_to_bigquery, load_schedules_to_bigquery, load_teams_to_bigquery, load_medals_total_to_bigquery] >> end_task
     
 
         
