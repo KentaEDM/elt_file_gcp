@@ -16,7 +16,7 @@ x-airflow-common:
     - ./logs:/opt/airflow/logs
     - ./plugins:/opt/airflow/plugins
     - ./include:/opt/airflow/include
-    - ./dbt:/opt/airflow/include
+    - ./dbt:/opt/airflow/dbt
     - ./data:/opt/airflow/data
 
   user: "${AIRFLOW_UID:-50000}:${AIRFLOW_GID:-50000}"
