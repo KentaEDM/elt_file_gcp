@@ -27,7 +27,7 @@ SELECT
     discipline,
     event,
     ROW_NUMBER() OVER (PARTITION BY code) as row_num_mdl
-FROM {{source('edm_data','table_medals')}}
+FROM {{ref('stg_medals')}}
 WHERE REGEXP_CONTAINS(code, r'\d+') 
 )
 
@@ -45,7 +45,8 @@ SELECT
     ath.weight,
     ath.birth_date,
     ath.age,
-    mdl.medal_type
+    mdl.medal_type,
+    mdl.discipline
 FROM athletes as ath 
 LEFT JOIN medals as mdl on ath.athletes_id = mdl.medal_code 
 WHERE row_num = 1 

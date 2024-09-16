@@ -1,0 +1,27 @@
+version: 2
+
+sources:
+  - name: edm_data  # Nama sumber (bisa Anda tentukan sendiri)
+    schema: EDM_Data  # Dataset di BigQuery
+    tables:
+      - name: table_athletes  # Nama tabel di dalam dataset
+        description: "Fact table"
+
+      - name: table_medals
+        description: "Dim table medals"
+
+      - name: table_events
+        description: "Dim table events"
+
+      - name: table_teams
+        description: "Dim table teams"
+      - name: table_schedules
+        description: "Dim table schedules"
+
+      - name: table_medals_total
+        description: "Dim table schedules"
+    
+
+ 
+      
+  

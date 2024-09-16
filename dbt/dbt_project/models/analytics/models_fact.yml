@@ -1,0 +1,9 @@
+
+models:
+  - name: fact_olympics
+    description: This models represent raw data from athletes and medals
+    columns:
+      - name: athletes_id
+        description : Primary key of medals table
+        tests:
+          - not_null
