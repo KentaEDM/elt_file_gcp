@@ -3,6 +3,7 @@
 ) }}
 
 SELECT 
+    DISTINCT
     start_date,
     end_date,
     day,
