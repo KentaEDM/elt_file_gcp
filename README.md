@@ -33,8 +33,11 @@ This project implements a robust Extract, Load, Transform (ELT) pipeline that in
 
 ![architecture](assets/Pipeline%20Depedencies.png)
 
+## List of Dag Airflow Webserver
+![architecture](assets/List%20of%20Dag.png)
+
 ## Airflow Variables
 ![architecture](assets/Airflow%20Variables.png)
 
-## GCP Connection ID
+## GCP Connection ID 
 ![architecture](assets/GCP%20Connection%20ID.png)
