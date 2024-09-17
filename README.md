@@ -41,3 +41,9 @@ This project implements a robust Extract, Load, Transform (ELT) pipeline that in
 
 ## GCP Connection ID 
 ![architecture](assets/GCP%20Connection%20ID.png)
+
+## Bigquery Dataset
+![architecture](assets/Bigquery%20Dataset.png)
+
+## Google Cloud Storage (GCS)
+![architecture](assets/Cloud%20Storage%20Warehouse.png)
