@@ -3,4 +3,4 @@
 ELT pipeline that integrates data from multiple sources (CSV, API, MySql) into a centralized data warehouse on Google Cloud Platform (GCP).
 
 ## **Architecture Overview**
-![architecture](assets/ELT%20Arcthitecture.jpeg)
+![architecture](assets/ELT%20Architecture.png)
