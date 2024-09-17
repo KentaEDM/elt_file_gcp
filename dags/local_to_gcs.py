@@ -362,7 +362,7 @@ def elt_olympics_to_gcp():
         bucket          = BUCKET_NAME,
         gcp_conn_id     = GC_CONN_ID,
         source_objects  = ['processed_medals_total.csv'],
-        destination_project_dataset_table = f'{BQ_TABLE_NAME}.medals_total',
+        destination_project_dataset_table = f'{BQ_TABLE_NAME}.table_medals_total',
         source_format   = 'csv',
         field_delimiter = ',',
         skip_leading_rows = 1,
