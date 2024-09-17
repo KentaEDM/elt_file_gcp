@@ -1,7 +1,6 @@
 # ELT with Airflow, Google Cloud Platform (GCS, Bigquery), and Data Build Tool (DBT)
 Data Engineer: A lesson for understanding ELT concepts.
 
-## **Table of Contents**
 
 ## **About the Porject**
 This project implements a robust Extract, Load, Transform (ELT) pipeline that integrates data from multiple sources into a centralized data warehouse on Google Cloud Platform (GCP). The pipeline is designed to handle data from CSV files, MySQL databases, and API endpoints, providing a comprehensive solution for data integration and analysis.
