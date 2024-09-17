@@ -25,3 +25,16 @@ This project implements a robust Extract, Load, Transform (ELT) pipeline that in
 6. Google Looker Studio 
 
 ## **Assets Screnshoots** 
+## Olympics Dashboard
+
+![architecture](assets/Olympic%20Dashboard%202024.png)
+
+## Olympics Pipeline Airflow
+
+![architecture](assets/Pipeline%20Depedencies.png)
+
+## Airflow Variables
+![architecture](assets/Airflow%20Variables.png)
+
+## GCP Connection ID
+![architecture](assets/GCP%20Connection%20ID.png)
