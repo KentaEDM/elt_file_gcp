@@ -1,5 +1,5 @@
 # ELT with Airflow, Google Cloud Platform (GCS, Bigquery), and Data Build Tool (DBT)
-Data Engineer: A lesson for understanding ELT concepts.
+Data Pipeline: A lesson for understanding ELT concepts.
 
 
 ## **About the Porject**
