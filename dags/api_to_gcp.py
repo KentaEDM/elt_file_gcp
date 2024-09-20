@@ -19,7 +19,9 @@ BASE_PATH       = Variable.get("BASE_PATH")
 DATASET_ID      = Variable.get("DATASET_ID")
 BUCKET_NAME     = Variable.get("BUCKET_NAME")
 GC_CONN_ID      = Variable.get("GC_CONN_ID")
+BQ_TABLE_NAME   = "agile-alignment-435006-h3.EDM_Data"
 DATA_PATH       = f"{BASE_PATH}/data"
+GCP_PROJECT     = "agile-alignment-435006-h3"
 
 default_args = {
     'owner' : 'Kenta EDM',
@@ -65,8 +67,40 @@ def api_to_gcp():
 
         df.to_csv(f'{DATA_PATH}/api_data.csv', index = False)
 
+        return f"{DATA_PATH}/api_data.csv"
+
     extract = api_extract()
-    transform = transform_api(extract)   
+    transform = transform_api(extract)
+
+    start_task  = EmptyOperator(task_id='start_task')
+    done_task   = EmptyOperator(task_id='end_task')
+
+    load_to_gcs = LocalFilesystemToGCSOperator(
+            task_id = "load_to_gcs",
+            bucket  = BUCKET_NAME,
+            src     = transform,
+            dst     = "processed_api_data.csv",
+            gcp_conn_id = GC_CONN_ID
+    )
+    load_to_bq  = GCSToBigQueryOperator(
+            task_id         = "load_data_gcs_to_bq",
+            source_objects  = ['processed_api_data.csv'],
+            bucket          = BUCKET_NAME,
+            destination_project_dataset_table = f"{BQ_TABLE_NAME}.processed_api",
+            source_format   = 'csv',
+            gcp_conn_id     = GC_CONN_ID,
+            field_delimiter = ',',
+            skip_leading_rows = 1,
+            project_id      = GCP_PROJECT,
+            autodetect      = True,
+            max_bad_records = 100,
+            ignore_unknown_values = True,
+            create_disposition = "CREATE_IF_NEEDED",
+            write_disposition = "WRITE_APPEND",
+            schema_fields   = [{}]
+    )
+
+    start_task >> extract >> transform >> load_to_gcs >> load_to_bq >> done_task
 
 
 api_to_gcp()
