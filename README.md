@@ -32,6 +32,10 @@ This project implements a robust Extract, Load, Transform (ELT) pipeline that in
 
 ![architecture](assets/Pipeline%20Depedencies.png)
 
+## API Pipeline Airflow
+
+![architecture](assets/API%20Pipeline.png)
+
 ## List of Dag Airflow Webserver
 ![architecture](assets/List%20of%20Dag.png)
 
