@@ -47,7 +47,7 @@ def api_to_gcp():
     def api_extract():
 
         col = ['id' , 'symbol' , 'name', 'image', 'current_price', 'market_cap', 
-               'market_cap_rank', 'total_volume', 'price_change_24h', 'total_supply', 'max_supply', 'ath_date', 'atl_date','last_update']
+               'market_cap_rank', 'total_volume', 'price_change_24h', 'total_supply', 'max_supply', 'ath_date', 'atl_date','last_updated']
         
         API = f"https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=100&page=i&sparkline=false"
         requests = req.get(API)
@@ -96,8 +96,8 @@ def api_to_gcp():
             max_bad_records = 100,
             ignore_unknown_values = True,
             create_disposition = "CREATE_IF_NEEDED",
-            write_disposition = "WRITE_APPEND",
-            schema_fields   = [{}]
+            write_disposition = "WRITE_APPEND"
+            # schema_fields   = [{}]
     )
 
     start_task >> extract >> transform >> load_to_gcs >> load_to_bq >> done_task
